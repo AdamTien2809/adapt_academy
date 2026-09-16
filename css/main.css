@@ -1,0 +1,1079 @@
+/* ==========================================================================
+   ADAPT ACADEMY - MAIN DESIGN SYSTEM & GLOBAL STYLES
+   Inspired by AES Mong Duong ADAPT Academy Operational Training System
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  /* Brand & Corporate Colors */
+  --color-brand-primary: #005A9C;     /* AES Blue */
+  --color-brand-teal: #00A3C4;        /* Electric Accent Teal */
+  --color-brand-navy-dark: #07152B;   /* Deepest Navy for Sidebar */
+  --color-brand-navy-mid: #0D2346;    /* Sidebar card / Active element */
+  --color-brand-navy-light: #163668;  /* Border / Hover */
+
+  /* Neutral UI Palette */
+  --color-bg-page: #F1F5F9;           /* Clean soft grayish slate background */
+  --color-bg-surface: #FFFFFF;        /* Pristine White Card Surface */
+  --color-bg-surface-subtle: #F8FAFC; /* Subtle gray background */
+  --color-text-primary: #0F172A;      /* High contrast dark slate */
+  --color-text-secondary: #475569;    /* Supporting Slate */
+  --color-text-muted: #94A3B8;        /* Subdued / captions */
+  --color-border-light: #E2E8F0;      /* Standard divider */
+  --color-border-focus: #38BDF8;
+
+  /* Status Colors */
+  --color-success: #10B981;
+  --color-success-bg: #ECFDF5;
+  --color-success-border: #A7F3D0;
+  
+  --color-warning: #F59E0B;
+  --color-warning-bg: #FFFBEB;
+  --color-warning-border: #FDE68A;
+
+  --color-danger: #EF4444;
+  --color-danger-bg: #FEF2F2;
+  --color-danger-border: #FECACA;
+
+  --color-info: #0284C7;
+  --color-info-bg: #F0F9FF;
+  --color-info-border: #BAE6FD;
+
+  /* Typography */
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Dimensions & Spacing */
+  --sidebar-width: 270px;
+  --header-height: 70px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
+  --shadow-glow: 0 0 20px rgba(0, 163, 196, 0.25);
+  
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg-page);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  height: 100%;
+  display: flex;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   APP LAYOUT (Sidebar + Main Viewport)
+   ========================================================================== */
+.app-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* --------------------------------------------------------------------------
+   SIDEBAR
+   -------------------------------------------------------------------------- */
+.sidebar {
+  width: var(--sidebar-width);
+  background: linear-gradient(180deg, #07152B 0%, #081B38 60%, #061122 100%);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  overflow-y: auto;
+  transition: transform var(--transition-normal);
+}
+
+.sidebar-header {
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.brand-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-badge-aes {
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  line-height: 1.25;
+}
+
+.brand-badge-aes span {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #94A3B8;
+  letter-spacing: normal;
+}
+
+.brand-academy-title {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #38BDF8;
+  letter-spacing: 0.04em;
+  margin-top: 3px;
+  line-height: 1.25;
+}
+
+/* Navigation Links */
+.sidebar-nav {
+  padding: 16px 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748B;
+  padding: 12px 10px 6px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 12px;
+  border-radius: var(--radius-sm);
+  color: #CBD5E1;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.nav-item:hover:not(.locked) {
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+}
+
+.nav-item.active {
+  background: linear-gradient(90deg, #0284C7 0%, #0369A1 100%);
+  color: #FFFFFF;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
+}
+
+.nav-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.nav-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-item-sub {
+  font-size: 0.72rem;
+  opacity: 0.75;
+  font-weight: 400;
+}
+
+.nav-status-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+}
+
+.nav-status-icon.completed {
+  color: #10B981;
+}
+
+.nav-status-icon.locked {
+  color: #64748B;
+}
+
+.nav-item.locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Sidebar Teacher / Reviewer Mode Toggle */
+.sidebar-reviewer-toggle {
+  padding: 12px 14px;
+  margin: 10px 12px;
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px dashed rgba(56, 189, 248, 0.35);
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  color: #BAE6FD;
+}
+
+.toggle-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 18px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #334155;
+  transition: .3s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #0284C7;
+}
+
+input:checked + .slider:before {
+  transform: translateX(14px);
+}
+
+/* Sidebar Footer (The visual from screenshot: Engineer looking at plant) */
+.sidebar-footer {
+  margin-top: auto;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar-engineer-visual {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.sidebar-engineer-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: brightness(0.85) contrast(1.1);
+}
+
+.sidebar-engineer-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px 14px 12px;
+  background: linear-gradient(180deg, rgba(7, 21, 43, 0) 0%, rgba(7, 21, 43, 0.95) 60%, #07152B 100%);
+}
+
+.sidebar-motto-aes {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 2px;
+}
+
+.sidebar-motto-text {
+  font-size: 0.78rem;
+  font-style: italic;
+  color: #38BDF8;
+  line-height: 1.25;
+}
+
+/* --------------------------------------------------------------------------
+   MAIN VIEWPORT & TOP HEADER
+   -------------------------------------------------------------------------- */
+.main-viewport {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: calc(100% - var(--sidebar-width));
+}
+
+.top-navbar {
+  height: var(--header-height);
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.nav-left-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: var(--color-text-primary);
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.breadcrumbs a {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.breadcrumbs a:hover {
+  color: var(--color-brand-primary);
+}
+
+.breadcrumbs .separator {
+  color: var(--color-text-muted);
+}
+
+.breadcrumbs .current {
+  color: var(--color-brand-primary);
+  font-weight: 600;
+}
+
+/* Global Progress Bar in Header (Matching screenshot: 50% - Applying Framework) */
+.header-progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 240px;
+}
+
+.progress-track {
+  flex: 1;
+  height: 8px;
+  background-color: #E2E8F0;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0284C7 0%, #38BDF8 100%);
+  border-radius: 999px;
+  width: 0%;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-label-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #0F172A;
+  white-space: nowrap;
+}
+
+.header-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #F8FAFC;
+  border: 1px solid var(--color-border-light);
+  padding: 6px 14px 6px 8px;
+  border-radius: 999px;
+}
+
+.user-avatar-badge {
+  width: 32px;
+  height: 32px;
+  background: #0284C7;
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.user-info-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.user-name-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.user-role-sub {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   PAGE CONTENT WRAPPER
+   -------------------------------------------------------------------------- */
+.page-content {
+  flex: 1;
+  padding: 28px 36px 60px;
+  max-width: 1380px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Common UI Components: Buttons, Badges, Cards */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-main);
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.btn-primary {
+  background: #0284C7;
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background: #0369A1;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
+.btn-outline {
+  background: #FFFFFF;
+  color: #0F172A;
+  border-color: #CBD5E1;
+}
+
+.btn-outline:hover {
+  background: #F8FAFC;
+  border-color: #94A3B8;
+}
+
+.btn-success {
+  background: #10B981;
+  color: #FFFFFF;
+}
+
+.btn-success:hover {
+  background: #059669;
+}
+
+.btn-danger {
+  background: #DC2626;
+  color: #FFFFFF;
+}
+
+.btn-danger:hover {
+  background: #B91C1C;
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 1rem;
+  border-radius: var(--radius-md);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge-primary {
+  background: #E0F2FE;
+  color: #0369A1;
+}
+
+.badge-navy {
+  background: #0284C7;
+  color: #FFFFFF;
+}
+
+.badge-success {
+  background: var(--color-success-bg);
+  color: #065F46;
+  border: 1px solid var(--color-success-border);
+}
+
+.badge-warning {
+  background: var(--color-warning-bg);
+  color: #92400E;
+  border: 1px solid var(--color-warning-border);
+}
+
+.badge-danger {
+  background: var(--color-danger-bg);
+  color: #991B1B;
+  border: 1px solid var(--color-danger-border);
+}
+
+/* Card Base */
+.card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 24px;
+  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+/* Module Outcome Checklist */
+.module-outcome-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.module-outcome-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.83rem;
+  color: #334155;
+  line-height: 1.4;
+}
+
+.module-outcome-list .check-icon {
+  color: #10B981;
+  font-weight: 800;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.module-outcome-header {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #0284C7;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* Program Synthesis 5-Step Card */
+.program-synthesis-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.program-synthesis-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #0284C7 0%, #38BDF8 50%, #10B981 100%);
+}
+
+.synthesis-header {
+  margin-bottom: 20px;
+}
+
+.synthesis-title-h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #07152B;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-top: 4px;
+}
+
+.synthesis-subhead-p {
+  font-size: 0.86rem;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+.competencies-grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.competency-item-box {
+  background: #F8FAFC;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.competency-item-box:hover {
+  transform: translateY(-2px);
+  border-color: #38BDF8;
+  background: #F0F9FF;
+}
+
+.competency-num-tag {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #0284C7;
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+
+.competency-title {
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: #0F172A;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.competency-desc {
+  font-size: 0.77rem;
+  color: #475569;
+  line-height: 1.45;
+}
+
+.outcome-statement-banner {
+  background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+  border: 1px solid #BAE6FD;
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.outcome-statement-badge {
+  background: #0284C7;
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.outcome-statement-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0369A1;
+  line-height: 1.4;
+}
+
+/* Assessment Card Specific Details */
+.assessment-card-details {
+  background: #F8FAFC;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+}
+
+.assessment-assessing-list {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.assessment-assessing-list li {
+  font-size: 0.76rem;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.assessment-assessing-list li::before {
+  content: "•";
+  color: #F59E0B;
+  font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  .competencies-grid-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .competencies-grid-5 {
+    grid-template-columns: 1fr;
+  }
+  .outcome-statement-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .assessment-assessing-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* ==========================================================================
+   RESPONSIVE STYLES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  :root {
+    --sidebar-width: 240px;
+  }
+  .page-content {
+    padding: 20px 24px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.4);
+  }
+  .main-viewport {
+    margin-left: 0;
+    width: 100%;
+  }
+  .mobile-menu-btn {
+    display: flex;
+  }
+  .top-navbar {
+    padding: 0 16px;
+  }
+  .header-progress-wrap {
+    display: none;
+  }
+  .page-content {
+    padding: 16px;
+  }
+  .site-footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+/* ==========================================================================
+   GLOBAL ANIMATION SYSTEM
+   AES Mong Duong ADAPT Academy — Micro-animations & Motion Design
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CORE KEYFRAMES
+   -------------------------------------------------------------------------- */
+
+/* Page entrance: cards, sections, and quiz panels fade up into view */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle scale-up for modals and certificate reveal */
+@keyframes scaleReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Toast / banner slide in from bottom */
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Certificate border glow pulse — subtle electric blue breathe */
+@keyframes certBorderGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(2, 132, 199, 0); }
+  50%       { box-shadow: 0 0 30px rgba(2, 132, 199, 0.45), 0 0 60px rgba(56, 189, 248, 0.18); }
+}
+
+/* Progress bar grow from 0 to target */
+@keyframes progressGrow {
+  from { width: 0%; }
+  to   { width: var(--progress-target, 100%); }
+}
+
+/* Shimmer for loading skeleton */
+@keyframes shimmer {
+  from { background-position: -600px 0; }
+  to   { background-position: 600px 0; }
+}
+
+/* Score circle entrance pop */
+@keyframes scorePop {
+  0%   { transform: scale(0.6); opacity: 0; }
+  70%  { transform: scale(1.06); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Nav active bar slide-in from left edge */
+@keyframes navBarSlideIn {
+  from { transform: scaleY(0); opacity: 0; }
+  to   { transform: scaleY(1); opacity: 1; }
+}
+
+/* Floating / bobbing animation for decorative elements */
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-4px); }
+}
+
+/* --------------------------------------------------------------------------
+   PAGE ENTRANCE ANIMATIONS
+   Cards, sections, and major content blocks fade-slide in on load.
+   Staggered with nth-child delays for a cascading effect.
+   -------------------------------------------------------------------------- */
+.card,
+.module-hero-card,
+.mission-card,
+.outcome-card,
+.quiz-question-card,
+.module-quiz-wrapper,
+.program-synthesis-card,
+.video-lessons-container,
+.page-content > * {
+  animation: fadeSlideIn 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Staggered delays for sibling elements */
+.page-content > *:nth-child(1)  { animation-delay: 0.04s; }
+.page-content > *:nth-child(2)  { animation-delay: 0.10s; }
+.page-content > *:nth-child(3)  { animation-delay: 0.16s; }
+.page-content > *:nth-child(4)  { animation-delay: 0.22s; }
+.page-content > *:nth-child(5)  { animation-delay: 0.28s; }
+.page-content > *:nth-child(6)  { animation-delay: 0.34s; }
+.page-content > *:nth-child(n+7) { animation-delay: 0.38s; }
+
+/* --------------------------------------------------------------------------
+   PROGRESS BAR — Animated fill on page load
+   JS sets the final width inline; CSS animates from 0 → target.
+   -------------------------------------------------------------------------- */
+.progress-fill {
+  animation: progressGrow 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+/* --------------------------------------------------------------------------
+   SIDEBAR NAV — Active indicator bar on left edge
+   -------------------------------------------------------------------------- */
+.nav-item {
+  overflow: hidden; /* clip the ::before bar */
+}
+
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(180deg, #38BDF8 0%, #0284C7 100%);
+  transform-origin: center top;
+  animation: navBarSlideIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* --------------------------------------------------------------------------
+   BUTTON HOVER MICRO-INTERACTIONS
+   -------------------------------------------------------------------------- */
+.btn {
+  transition: all 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+.btn:not(:disabled):active {
+  transform: translateY(0px) scale(0.98);
+}
+
+.btn-primary:not(:disabled):hover {
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.3);
+}
+
+.btn-success:not(:disabled):hover {
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.28);
+}
+
+/* --------------------------------------------------------------------------
+   CARD HOVER LIFT — Uniform subtle lift on interactive cards
+   -------------------------------------------------------------------------- */
+.card:hover,
+.mission-card:hover,
+.module-hero-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* --------------------------------------------------------------------------
+   TOAST / STORAGE STATUS BANNER — Slide-in animation
+   -------------------------------------------------------------------------- */
+.storage-status-banner {
+  animation: toastSlideIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* --------------------------------------------------------------------------
+   SKELETON LOADING SHIMMER
+   Add class="skeleton" to placeholder elements while data loads
+   -------------------------------------------------------------------------- */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #E2E8F0 25%,
+    #F1F5F9 50%,
+    #E2E8F0 75%
+  );
+  background-size: 1200px 100%;
+  animation: shimmer 1.6s infinite linear;
+  border-radius: var(--radius-sm);
+  color: transparent !important;
+  user-select: none;
+}
+
+.skeleton * {
+  visibility: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   OUTCOME CARD — Float bob on hover for learning cards
+   -------------------------------------------------------------------------- */
+.outcome-card:hover .outcome-icon-wrap {
+  animation: floatBob 1.8s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   RESPECT USER PREFERENCE FOR REDUCED MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

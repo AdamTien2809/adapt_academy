@@ -1,0 +1,826 @@
+/* ==========================================================================
+   ADAPT ACADEMY - L&D MODULE HUBS & THEORY QUICK REFERENCE STYLESHEET
+   Faithful recreation of the Theory Quick Reference 3-Card Visual Layout:
+   1. Kirkpatrick 4-Level Model (Ascending Staircase Graphic with Risers)
+   2. 70/20/10 Learning Framework (SVG Donut Chart with Direct Callouts & Legend)
+   3. LTEM Comparison (Level 4 Red Brain vs Level 7 Green Rocket)
+   4. Reference Footnotes
+   5. Interactive Quick Reflex Check & Shift Transfer Check Modal
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   THEORY HEADER SECTION (NAVY HERO)
+   -------------------------------------------------------------------------- */
+.theory-header-section {
+  background: linear-gradient(135deg, #07152B 0%, #0D2346 60%, #0A3266 100%);
+  border-radius: var(--radius-lg);
+  color: #FFFFFF;
+  padding: 32px 36px;
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.theory-header-section::after {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(56, 189, 248, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.theory-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.theory-tag-badge {
+  background: rgba(2, 132, 199, 0.25);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.theory-quick-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.theory-quick-sub {
+  font-size: 0.96rem;
+  color: #94A3B8;
+  max-width: 760px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   THEORY CARDS 3-COLUMN GRID
+   -------------------------------------------------------------------------- */
+.theory-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+  align-items: stretch;
+}
+
+.theory-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.theory-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.theory-card-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #07152B;
+  margin: 0 0 20px 0;
+  line-height: 1.3;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+/* --------------------------------------------------------------------------
+   CARD 1: KIRKPATRICK ASCENDING STAIRCASE
+   -------------------------------------------------------------------------- */
+.staircase-visual-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.staircase-stepped-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+}
+
+.stair-step-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.stair-step-row:hover {
+  transform: translateX(3px);
+}
+
+/* Ascending offsets mimicking staircase in screenshot */
+.stair-step-row.step-1 {
+  margin-left: 0;
+}
+
+.stair-step-row.step-2 {
+  margin-left: 24px;
+}
+
+.stair-step-row.step-3 {
+  margin-left: 48px;
+}
+
+.stair-step-row.step-4 {
+  margin-left: 72px;
+}
+
+/* Step square icon box */
+.stair-step-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+/* Step 1: Reaction (Bottom) */
+.stair-step-box.box-1 {
+  background: #F0F9FF;
+  border: 1.5px solid #BAE6FD;
+  color: #0284C7;
+}
+
+/* Step 2: Learning */
+.stair-step-box.box-2 {
+  background: #E0F2FE;
+  border: 1.5px solid #7DD3FC;
+  color: #0369A1;
+}
+
+/* Step 3: Behavior */
+.stair-step-box.box-3 {
+  background: #EEF2FF;
+  border: 1.5px solid #C7D2FE;
+  color: #4338CA;
+}
+
+/* Step 4: Results (Top) - Dark Navy Cap matching screenshot */
+.stair-step-box.box-4 {
+  background: #0B1E3B;
+  border: 2px solid #07152B;
+  color: #38BDF8;
+  box-shadow: 0 4px 12px rgba(11, 30, 59, 0.25);
+}
+
+.stair-step-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.stair-step-num {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748B;
+  line-height: 1;
+}
+
+.stair-step-heading {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #07152B;
+  margin: 3px 0 2px 0;
+  line-height: 1.2;
+}
+
+.stair-step-summary {
+  font-size: 0.76rem;
+  color: #475569;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   CARD 2: 70/20/10 DONUT CHART
+   -------------------------------------------------------------------------- */
+.donut-chart-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  padding-top: 4px;
+}
+
+.donut-svg-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.donut-svg-element {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.donut-bottom-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid #E2E8F0;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.legend-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+.legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-swatch.swatch-dark {
+  background: #0B192C;
+}
+
+.legend-swatch.swatch-slate {
+  background: #4A7C9D;
+}
+
+.legend-swatch.swatch-soft-blue {
+  background: #82AFCE;
+}
+
+/* --------------------------------------------------------------------------
+   CARD 3: LTEM COMPARISON (LEVEL 4 VS LEVEL 7)
+   -------------------------------------------------------------------------- */
+.ltem-side-by-side-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  flex: 1;
+}
+
+.ltem-sub-box {
+  border-radius: 12px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.2s ease;
+}
+
+.ltem-sub-box:hover {
+  transform: translateY(-2px);
+}
+
+/* Left Subcard: Level 4 Retention (Rose / Pink) */
+.ltem-sub-box.box-level-4 {
+  background: #FFF1F2;
+  border: 1px solid #FECDD3;
+}
+
+/* Right Subcard: Level 7 Transfer (Mint / Green) */
+.ltem-sub-box.box-level-7 {
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+}
+
+.ltem-sub-top {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.ltem-brain-icon-wrap {
+  margin: 0 auto 6px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ltem-rocket-badge-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #10B981;
+  margin: 0 auto 6px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 8px rgba(16, 185, 129, 0.3);
+}
+
+.ltem-sub-level-tag {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #DC2626;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.ltem-sub-level-tag.green-text {
+  color: #15803D;
+}
+
+.ltem-sub-level-sub {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #991B1B;
+  margin-top: 2px;
+  line-height: 1.25;
+}
+
+.ltem-sub-level-sub.green-sub {
+  color: #166534;
+}
+
+.ltem-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ltem-bullet-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: #334155;
+  line-height: 1.4;
+}
+
+.ltem-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.dot-red {
+  background: #DC2626;
+}
+
+.dot-green {
+  background: #10B981;
+}
+
+/* --------------------------------------------------------------------------
+   FOOTNOTES SECTION (FROM SCREENSHOT)
+   -------------------------------------------------------------------------- */
+.theory-footnotes {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 14px 20px;
+  margin-bottom: 32px;
+  font-size: 0.78rem;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+.theory-footnotes p {
+  margin: 4px 0;
+}
+
+.theory-footnotes sup {
+  font-weight: 700;
+  color: #0284C7;
+}
+
+/* --------------------------------------------------------------------------
+   INTERACTIVE REFLEX CHECK
+   -------------------------------------------------------------------------- */
+.reflex-check-card {
+  background: linear-gradient(135deg, #07152B 0%, #0F274A 100%);
+  border: 1px solid #1E3A8A;
+  border-radius: var(--radius-lg);
+  color: #FFFFFF;
+  padding: 28px 32px;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-md);
+}
+
+.reflex-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.reflex-pill {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.reflex-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+.reflex-scenario-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-size: 0.92rem;
+  color: #E2E8F0;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.reflex-scenario-box strong {
+  color: #38BDF8;
+}
+
+.reflex-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.reflex-option-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #E2E8F0;
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.reflex-option-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #38BDF8;
+  color: #FFFFFF;
+  transform: translateX(3px);
+}
+
+.reflex-letter {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.78rem;
+  color: #38BDF8;
+  flex-shrink: 0;
+}
+
+.reflex-option-btn.correct {
+  background: rgba(16, 185, 129, 0.25);
+  border-color: #10B981;
+  color: #A7F3D0;
+}
+
+.reflex-option-btn.correct .reflex-letter {
+  background: #10B981;
+  color: #FFFFFF;
+}
+
+.reflex-option-btn.incorrect {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: #EF4444;
+  color: #FECACA;
+}
+
+.reflex-option-btn.incorrect .reflex-letter {
+  background: #EF4444;
+  color: #FFFFFF;
+}
+
+.reflex-feedback-box {
+  display: none;
+  padding: 16px 20px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  animation: fadeIn 0.3s ease;
+}
+
+.reflex-feedback-box.show {
+  display: block;
+}
+
+.reflex-feedback-box.pass {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(52, 211, 153, 0.4);
+  color: #D1FAE5;
+}
+
+.reflex-feedback-box.fail {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  color: #FEE2E2;
+}
+
+/* --------------------------------------------------------------------------
+   BOTTOM ACTIONS / FOOTER CTA
+   -------------------------------------------------------------------------- */
+.hub-bottom-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  box-shadow: var(--shadow-sm);
+  margin-top: 20px;
+}
+
+.hub-action-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hub-action-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #07152B;
+}
+
+.hub-action-desc {
+  font-size: 0.85rem;
+  color: #64748B;
+}
+
+.hub-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.btn-hub-secondary {
+  background: #F8FAFC;
+  border: 1.5px solid #CBD5E1;
+  color: #334155;
+  border-radius: 8px;
+  padding: 11px 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-hub-secondary:hover {
+  background: #F1F5F9;
+  border-color: #94A3B8;
+  color: #0F172A;
+  transform: translateY(-1px);
+}
+
+.btn-hub-primary {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  border: 1px solid #34D399;
+  color: #FFFFFF;
+  border-radius: 8px;
+  padding: 11px 24px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 3px 12px rgba(16, 185, 129, 0.3);
+  transition: all 0.2s ease;
+}
+
+.btn-hub-primary:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.45);
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   TRANSFER CHECK LIKERT MODAL
+   -------------------------------------------------------------------------- */
+.transfer-modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(7, 21, 43, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.transfer-modal-backdrop.active {
+  display: flex;
+}
+
+.transfer-modal-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  max-width: 620px;
+  width: 100%;
+  padding: 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: modalSlideUp 0.3s ease;
+}
+
+.transfer-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.transfer-modal-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #07152B;
+  margin-bottom: 4px;
+}
+
+.transfer-modal-sub {
+  font-size: 0.85rem;
+  color: #64748B;
+  margin: 0;
+}
+
+.btn-close-modal {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: #94A3B8;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+
+.btn-close-modal:hover {
+  color: #0F172A;
+}
+
+.likert-item {
+  margin-bottom: 20px;
+}
+
+.likert-question {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1E293B;
+  margin-bottom: 8px;
+}
+
+.likert-options-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.likert-radio-label {
+  flex: 1;
+  text-align: center;
+  padding: 8px 6px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.likert-radio-label:hover {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+.likert-radio-label input {
+  display: none;
+}
+
+.likert-radio-label.selected {
+  background: #0284C7;
+  color: #FFFFFF;
+  border-color: #0284C7;
+}
+
+.modal-submit-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE MEDIA QUERIES
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .theory-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .staircase-stepped-flow {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 640px) {
+  .theory-header-section {
+    padding: 24px 20px;
+  }
+  .theory-card {
+    padding: 20px 18px;
+  }
+  .ltem-side-by-side-grid {
+    grid-template-columns: 1fr;
+  }
+  .stair-step-row.step-2,
+  .stair-step-row.step-3,
+  .stair-step-row.step-4 {
+    margin-left: 0;
+  }
+  .hub-bottom-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .hub-action-buttons {
+    flex-direction: column;
+  }
+  .btn-hub-secondary, .btn-hub-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}

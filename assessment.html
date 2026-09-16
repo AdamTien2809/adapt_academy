@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Assessment | ADAPT Academy</title>
+  <meta name="description" content="ADAPT Academy Final Comprehensive Examination - Demonstrating mastery of operational decision-making. Requires >80% to pass.">
+  
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/assessment.css">
+</head>
+<body class="exam-mode">
+
+  <!-- ======================================================================
+       1. HEADER BAR & PROGRESS MONITORING (FIXED AT THE TOP)
+       ====================================================================== -->
+  <header class="exam-fixed-header">
+    <div class="exam-header-inner">
+      
+      <!-- Exam & Module Branding (Left) -->
+      <div class="exam-brand-block">
+        <a href="index.html" class="exam-brand-logo" title="Back to Dashboard">
+          <span>aes</span>
+        </a>
+        <div class="exam-brand-meta">
+          <div class="exam-brand-badge-row">
+            <span class="exam-brand-pill">AES Mong Duong</span>
+            <span class="exam-brand-dot">•</span>
+            <span class="exam-brand-sub">Certification Exam</span>
+          </div>
+          <h1 class="exam-brand-title" title="Operational Excellence & Value-Stream Transfer">
+            Operational Excellence &amp; Value-Stream Transfer
+          </h1>
+        </div>
+      </div>
+
+      <!-- Status Cluster: Timer & Progress in an Airy Glass Capsule (Center) -->
+      <div class="exam-header-center">
+        <div class="exam-status-capsule">
+          <!-- Countdown Timer -->
+          <div class="exam-countdown-box" id="exam-countdown-box" title="Remaining examination time">
+            <div class="timer-icon-wrap">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="timer-digits-wrap">
+              <span class="timer-digits-label">Time Remaining</span>
+              <span class="timer-digits-val" id="exam-timer-display">60:00 / 60:00</span>
+            </div>
+          </div>
+
+          <!-- Vertical Divider -->
+          <div class="exam-capsule-divider" aria-hidden="true"></div>
+
+          <!-- Progress Indicator -->
+          <div class="exam-progress-monitor">
+            <div class="exam-progress-info">
+              <span class="exam-progress-label">Progress</span>
+              <span class="exam-progress-val" id="exam-progress-text">0/15 completed (0%)</span>
+            </div>
+            <div class="exam-progress-track">
+              <div class="exam-progress-fill" id="exam-progress-fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons: Friendly Quit & High-Prestige Submit (Right) -->
+      <div class="exam-header-right">
+        <button type="button" class="btn-quit-exam" id="btn-quit-exam" title="Quit Exam and discard progress">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Quit Exam</span>
+        </button>
+        <button type="button" class="btn-submit-exam-top" id="btn-submit-exam-top" title="Review and submit your answers">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Submit Exam</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       MAIN CONTENT: WORKSPACE & QUESTION PALETTE SIDEBAR
+       ====================================================================== -->
+  <main class="exam-layout-wrapper">
+    <div class="exam-main-container">
+
+      <!-- 3. MAIN WORKSPACE -->
+      <div class="exam-workspace-main">
+        <div class="exam-card-wrapper" id="exam-card-wrapper">
+          
+          <!-- Question Top Metadata & Flag Toggle -->
+          <div class="question-top-meta">
+            <div class="question-badge-group">
+              <span class="question-num-pill" id="q-num-pill">Question 1 of 15</span>
+              <span class="question-type-badge" id="q-type-badge">Multiple Choice (MCQ)</span>
+              <span class="question-points-badge" id="q-points-badge">4 Points</span>
+            </div>
+            <button type="button" class="btn-flag-bottom" id="q-card-flag-btn">
+              <span id="q-card-flag-icon">☆</span>
+              <span id="q-card-flag-text">Flag for Review</span>
+            </button>
+          </div>
+
+          <!-- Scenario Context Information Box -->
+          <div class="scenario-context-box" id="scenario-context-box">
+            <div class="scenario-header-tag">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+              </svg>
+              <span>Plant Scenario Context • Operational Condition</span>
+            </div>
+            <div class="scenario-body-text" id="scenario-body-text">
+              Loading scenario context...
+            </div>
+          </div>
+
+          <!-- Main Question Displayed in Bold -->
+          <div class="exam-main-question" id="exam-main-question">
+            Loading assessment question...
+          </div>
+
+          <!-- Part 1: Scenario-Based Multiple Choice Questions (MCQ 1–10) -->
+          <div class="mcq-options-container" id="mcq-options-container">
+            <!-- Dynamically populated choices A, B, C, D -->
+          </div>
+
+          <!-- Part 2: Field-Based Scenario Essay Questions (Case Studies 11–15) -->
+          <div class="case-study-workspace" id="case-study-workspace" style="display: none;">
+            
+            <!-- Grading Criteria / Rubric Preview -->
+            <div class="rubric-preview-box" id="rubric-preview-box">
+              <div class="rubric-header-tag">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Grading Criteria & Rubric Preview (Key Competencies Assessed)</span>
+              </div>
+              <ul class="rubric-criteria-list" id="rubric-criteria-list">
+                <!-- Dynamically populated rubric items -->
+              </ul>
+            </div>
+
+            <!-- Response Editor (Rich Text Editor) -->
+            <div class="rich-editor-wrapper">
+              <!-- Formatting Toolbar -->
+              <div class="rich-editor-toolbar" id="rich-editor-toolbar">
+                <button type="button" class="toolbar-btn" data-cmd="bold" title="Bold (Ctrl+B)"><b>B</b></button>
+                <button type="button" class="toolbar-btn" data-cmd="italic" title="Italic (Ctrl+I)"><i>I</i></button>
+                <button type="button" class="toolbar-btn" data-cmd="underline" title="Underline (Ctrl+U)"><u>U</u></button>
+                <span class="toolbar-separator"></span>
+                <button type="button" class="toolbar-btn" data-cmd="formatBlock" data-val="h3" title="Heading 3">H3</button>
+                <button type="button" class="toolbar-btn" data-cmd="insertUnorderedList" title="Bulleted List">• List</button>
+                <button type="button" class="toolbar-btn" data-cmd="insertOrderedList" title="Numbered List">1. List</button>
+                <span class="toolbar-separator"></span>
+                <button type="button" class="toolbar-btn" data-cmd="removeFormat" title="Clear Formatting">↺ Clear</button>
+              </div>
+
+              <!-- Editable Response Area -->
+              <div class="rich-editor-textarea" id="case-study-editor" contenteditable="true" data-placeholder="Type your operational response, technical rationale, and coordinated decision steps here..."></div>
+
+              <!-- Word Counter & Suggested Minimum Length -->
+              <div class="editor-bottom-meta">
+                <div class="word-counter-badge below-min" id="word-counter-badge">
+                  <span id="word-counter-text">Word Count: 0 / Min required: 200 words</span>
+                </div>
+                <span class="suggested-length-note" id="suggested-length-note">Required response length: 200 – 1,000 words</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 2. QUESTION NAVIGATION PANEL (SIDEBAR / QUESTION PALETTE - RIGHT) -->
+      <aside class="exam-palette-sidebar">
+        <div class="palette-main-title">
+          <span>Question Palette</span>
+          <span class="palette-status-pill" id="palette-status-pill">15 Questions</span>
+        </div>
+
+        <!-- Palette Color Legend -->
+        <div class="palette-legend-card">
+          <div class="legend-chip">
+            <span class="legend-swatch answered"></span>
+            <span>Answered</span>
+          </div>
+          <div class="legend-chip">
+            <span class="legend-swatch unanswered"></span>
+            <span>Unanswered</span>
+          </div>
+          <div class="legend-chip">
+            <span class="legend-swatch flagged"></span>
+            <span>Flagged</span>
+          </div>
+          <div class="legend-chip">
+            <span class="legend-swatch current"></span>
+            <span>Active</span>
+          </div>
+        </div>
+
+        <!-- Section 1: Multiple Choice (Questions 1–10) -->
+        <div class="palette-section-group">
+          <div class="palette-section-header">
+            <span>Section 1: Multiple Choice (Q1–10)</span>
+            <span class="palette-section-badge" id="part1-count-badge">0/10</span>
+          </div>
+          <div class="palette-boxes-grid" id="palette-grid-part1">
+            <!-- 10 buttons rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Section 2: Case Studies (Questions 11–15) -->
+        <div class="palette-section-group">
+          <div class="palette-section-header">
+            <span>Section 2: Case Studies (Q11–15)</span>
+            <span class="palette-section-badge" id="part2-count-badge">0/5</span>
+          </div>
+          <div class="palette-boxes-grid" id="palette-grid-part2">
+            <!-- 5 buttons rendered dynamically -->
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- ======================================================================
+       4. SUPPORT TOOLBAR & BOTTOM NAVIGATION BAR (FIXED AT THE BOTTOM)
+       ====================================================================== -->
+  <footer class="exam-fixed-footer">
+    <div class="exam-footer-inner">
+      
+      <!-- Auto-save Indicator -->
+      <div class="auto-save-indicator" id="auto-save-indicator">
+        <span class="auto-save-dot" id="auto-save-dot"></span>
+        <span id="auto-save-text">Automatically saved at --:--:--</span>
+      </div>
+
+      <!-- Flag for Review Button -->
+      <button type="button" class="btn-flag-bottom" id="btn-bottom-flag">
+        <span id="bottom-flag-icon">☆</span>
+        <span id="bottom-flag-text">Flag for Review</span>
+      </button>
+
+      <!-- Question Navigation Buttons -->
+      <div class="bottom-nav-actions">
+        <button type="button" class="btn-nav-prev" id="btn-prev-question">
+          &larr; Previous
+        </button>
+        <button type="button" class="btn-nav-next" id="btn-next-question">
+          Next &rarr;
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       5. TWO-STEP SUBMISSION CONFIRMATION POPUP MODAL
+       ====================================================================== -->
+  <div class="confirm-modal-overlay" id="confirm-modal-overlay">
+    <div class="confirm-modal-card">
+
+      <!-- Step 1: Status Overview & Unanswered Warning -->
+      <div id="confirm-step-1">
+        <span class="confirm-step-badge">Step 1 of 2: Completion Verification</span>
+        <h3 class="confirm-modal-title">Review Assessment Status</h3>
+        <p class="confirm-modal-desc">
+          Please verify your question completion progress before submitting your exam for formal grading.
+        </p>
+
+        <div class="confirm-summary-grid">
+          <div class="confirm-stat-item">
+            <div class="stat-num answered" id="confirm-stat-answered">0</div>
+            <div class="stat-desc">Completed</div>
+          </div>
+          <div class="confirm-stat-item">
+            <div class="stat-num unanswered" id="confirm-stat-unanswered">20</div>
+            <div class="stat-desc">Unanswered</div>
+          </div>
+          <div class="confirm-stat-item">
+            <div class="stat-num flagged" id="confirm-stat-flagged">0</div>
+            <div class="stat-desc">Flagged</div>
+          </div>
+        </div>
+
+        <div class="confirm-warning-banner" id="confirm-warning-banner" style="display: none;">
+          <strong>Attention:</strong> You have unanswered questions (<span id="confirm-unanswered-list"></span>). Any unanswered questions will receive 0 points upon submission.
+        </div>
+
+        <div class="confirm-modal-actions">
+          <button type="button" class="btn btn-outline" id="btn-confirm-cancel">Return to Exam</button>
+          <button type="button" class="btn btn-primary" id="btn-confirm-step1-next">Proceed to Final Submit &rarr;</button>
+        </div>
+      </div>
+
+      <!-- Step 2: Final Submission Lock-in -->
+      <div id="confirm-step-2" style="display: none;">
+        <span class="confirm-step-badge" style="color: #DC2626; background: #FEF2F2; border-color: #FCA5A5;">Step 2 of 2: Final Verification</span>
+        <h3 class="confirm-modal-title">Lock & Submit Examination?</h3>
+        <p class="confirm-modal-desc">
+          Once submitted, your exam will be locked and graded immediately against the AES Mong Duong 80% passing standard. Your answers cannot be altered after this step.
+        </p>
+
+        <label class="confirm-checkbox-label">
+          <input type="checkbox" id="final-confirm-checkbox">
+          <span class="confirm-checkbox-text">
+            I confirm that all my responses are finalized and I am ready to submit my examination for evaluation.
+          </span>
+        </label>
+
+        <div class="confirm-modal-actions">
+          <button type="button" class="btn btn-outline" id="btn-confirm-step2-back">&larr; Back to Step 1</button>
+          <button type="button" class="btn btn-submit-exam-top" id="btn-confirm-step2-finalize" disabled style="background: #DC2626; border-color: #EF4444; opacity: 0.5;">
+            Confirm & Grade Exam
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       6. POST-SUBMISSION RESULTS MODAL / REVIEW SECTION
+       ====================================================================== -->
+  <div class="results-modal-overlay" id="results-modal">
+    <div class="results-modal-card">
+      <div class="score-visual-circle" id="results-score-circle">
+        <span class="score-number" id="results-score-val">90%</span>
+        <span class="score-status-text" id="results-status-label">PASSED</span>
+      </div>
+
+      <h2 class="results-headline-h2" id="results-headline">Congratulations! You Passed</h2>
+      <p class="results-feedback-p" id="results-feedback">
+        Your score meets the &gt;80% threshold required by AES Mong Duong. Your Certificate of Operational Excellence has been unlocked!
+      </p>
+
+      <div class="results-stats-row">
+        <div class="results-stat-box">
+          <span class="stat-val" id="stat-correct-ratio">18 / 20</span>
+          <span class="stat-lbl">Questions Completed</span>
+        </div>
+        <div class="results-stat-box">
+          <span class="stat-val" id="stat-percentage">90%</span>
+          <span class="stat-lbl">Final Score</span>
+        </div>
+        <div class="results-stat-box">
+          <span class="stat-val" id="stat-requirement">&gt; 80%</span>
+          <span class="stat-lbl">Passing Standard</span>
+        </div>
+      </div>
+
+      <div class="results-actions-row">
+        <button type="button" class="btn btn-primary btn-lg" id="results-action-primary">
+          Claim & View Certificate &rarr;
+        </button>
+        <button type="button" class="btn btn-outline btn-lg" id="results-action-secondary">
+          Review Explanations & Model Answers
+        </button>
+      </div>
+
+      <!-- Question-by-Question Review with Explanations & Rubrics -->
+      <div class="results-review-accordion" id="results-review-section">
+        <h3 class="review-section-title">
+          Detailed Assessment Analysis & Model Solutions
+        </h3>
+        <div id="results-review-list">
+          <!-- Filled by assessment.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       0. PRE-EXAM READINESS OVERLAY (BEFORE EXAM STARTS)
+       ====================================================================== -->
+  <div class="exam-prestart-overlay" id="exam-prestart-overlay">
+    <div class="exam-prestart-card">
+      <span class="prestart-header-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+        AES Mong Duong • High-Stakes Certification
+      </span>
+      <h1 class="prestart-main-title">
+        FINAL COMPREHENSIVE EXAM<br>
+        <span style="font-size: 1.15rem; font-weight: 700; color: #0284C7;">OPERATIONAL EXCELLENCE & VALUE-STREAM TRANSFER</span>
+      </h1>
+      <p class="prestart-subtitle">
+        Duration: 60 minutes • Target Audience: Control Room Operators, Shift Supervisors, O&amp;M Engineers.<br>
+        The countdown timer will not begin until you confirm you are ready to start.
+      </p>
+
+      <div class="prestart-rules-grid">
+        <div class="prestart-rule-box">
+          <div class="prestart-rule-icon">⏱</div>
+          <div class="prestart-rule-text">
+            <h4>60:00 Live Timer</h4>
+            <p>Timer persists and continues countdown automatically across page refreshes.</p>
+          </div>
+        </div>
+        <div class="prestart-rule-box">
+          <div class="prestart-rule-icon">📋</div>
+          <div class="prestart-rule-text">
+            <h4>15 Total Questions (100 Pts)</h4>
+            <p>10 Scenario MCQs (40 pts) + 5 Field Case Studies (60 pts, 12 pts each).</p>
+          </div>
+        </div>
+        <div class="prestart-rule-box">
+          <div class="prestart-rule-icon">✍️</div>
+          <div class="prestart-rule-text">
+            <h4>Case Study Length Limits</h4>
+            <p>Minimum 200 words and maximum 1,000 words per case study response.</p>
+          </div>
+        </div>
+        <div class="prestart-rule-box">
+          <div class="prestart-rule-icon">🎯</div>
+          <div class="prestart-rule-text">
+            <h4>Passing Score: ≥ 80%</h4>
+            <p>Requires ≥ 80 points to pass and unlock the official Certificate of Mastery.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prestart-actions-row">
+        <button type="button" class="btn-start-exam-trigger" id="btn-prestart-trigger">
+          <span>Start Assessment</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+        <a href="index.html" class="btn-return-overview">
+          Return to Course Overview
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       START WARNING CONFIRMATION MODAL (ARE YOU READY?)
+       ====================================================================== -->
+  <div class="start-warning-overlay" id="start-warning-overlay">
+    <div class="start-warning-card">
+      <div class="warning-icon-badge">⚠️</div>
+      <h3 class="start-warning-title">Ready to Begin the Test?</h3>
+      <p class="start-warning-desc">
+        You are about to start the 60-minute timed final examination. Once started, the countdown timer will begin immediately and cannot be paused.
+      </p>
+      <div class="start-warning-box">
+        <strong>Exam Rules Confirmation:</strong>
+        <ul style="margin: 6px 0 0 16px; padding: 0;">
+          <li>60:00 minutes total duration (timer will continue on refresh).</li>
+          <li>Section 1: 10 MCQs (40 pts) | Section 2: 5 Case Studies (60 pts).</li>
+          <li>Case study word limit: Minimum 200 words, maximum 1000 words.</li>
+          <li>You must achieve ≥ 80% to pass and unlock your Certificate.</li>
+        </ul>
+      </div>
+      <div class="start-warning-actions">
+        <button type="button" class="btn-warning-no" id="btn-start-modal-no">
+          No
+        </button>
+        <button type="button" class="btn-warning-yes" id="btn-start-modal-yes">
+          Yes, Start Test Now &rarr;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       QUIT EXAM WARNING CONFIRMATION MODAL
+       ====================================================================== -->
+  <div class="start-warning-overlay" id="quit-warning-overlay">
+    <div class="start-warning-card" style="border-top: 5px solid #EF4444;">
+      <div class="warning-icon-badge" style="background: #FEE2E2; color: #DC2626;">⚠️</div>
+      <h3 class="start-warning-title" style="color: #991B1B;">Quit Examination?</h3>
+      <p class="start-warning-desc">
+        Are you sure you want to quit the exam?
+      </p>
+      <div class="start-warning-box" style="background: #FEF2F2; border-color: #FCA5A5; color: #991B1B;">
+        <strong>CRITICAL WARNING:</strong>
+        <p style="margin: 6px 0 0 0; line-height: 1.45;">
+          If you quit now, all your current responses and progress will <strong>NOT be saved</strong>, and your examination attempt will be canceled. You will have to start all over again from the beginning.
+        </p>
+      </div>
+      <div class="start-warning-actions">
+        <button type="button" class="btn-warning-no" id="btn-quit-modal-cancel">
+          Continue Exam
+        </button>
+        <button type="button" class="btn btn-danger" id="btn-quit-modal-confirm" style="background: #DC2626; border-color: #B91C1C; color: #fff; padding: 10px 24px; font-weight: 800; border-radius: 8px; cursor: pointer;">
+          Yes, Quit &amp; Discard Progress
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/assessment.js"></script>
+  <script>
+    let assessmentController;
+    document.addEventListener('DOMContentLoaded', () => {
+      assessmentController = new AssessmentController();
+      assessmentController.init();
+    });
+  </script>
+</body>
+</html>

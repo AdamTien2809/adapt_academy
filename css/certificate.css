@@ -1,0 +1,466 @@
+/* ==========================================================================
+   ADAPT ACADEMY - CERTIFICATE OF COMPLETION STYLESHEET
+   Printable & Downloadable Official Certificate
+   ========================================================================== */
+
+.certificate-page-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* Storage banners break out of the 1040px certificate wrap to span full content width */
+.certificate-page-wrap .storage-status-banner {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Actions & Customization Control Bar */
+.certificate-toolbar {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  padding: 16px 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.recipient-input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  min-width: 280px;
+}
+
+.recipient-input-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #07152B;
+  white-space: nowrap;
+}
+
+.recipient-input-field {
+  flex: 1;
+  padding: 9px 13px;
+  border: 1.5px solid #CBD5E1;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0F172A;
+  transition: border-color var(--transition-fast);
+  height: 40px;
+}
+
+.recipient-input-field:focus {
+  outline: none;
+  border-color: #0284C7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.cert-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* All cert toolbar buttons uniform height */
+.cert-btn-group .btn,
+.recipient-input-group .btn {
+  height: 40px;
+  padding: 0 16px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+/* Download PDF / Print — slate-navy so it's visible on white toolbar */
+#btn-print-cert {
+  background: #1E293B;
+  color: #FFFFFF;
+  border-color: #1E293B;
+}
+
+#btn-print-cert:not(:disabled):hover {
+  background: #0F172A;
+  border-color: #0F172A;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.22);
+}
+
+/* Copy ID — subtle slate outline */
+#btn-copy-cert-id {
+  background: #F8FAFC;
+  color: #334155;
+  border-color: #CBD5E1;
+}
+
+#btn-copy-cert-id:not(:disabled):hover {
+  background: #F1F5F9;
+  border-color: #94A3B8;
+}
+
+/* Web Storage Active banner — full-width, outside the 1040px cert wrap */
+.storage-status-banner {
+  background: #ECFDF5;
+  border: 1px solid #A7F3D0;
+  border-radius: var(--radius-sm);
+  padding: 11px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: #065F46;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   THE CERTIFICATE FRAME
+   Classical, High-Prestige Parchment Layout
+   -------------------------------------------------------------------------- */
+.certificate-frame-container {
+  width: 100%;
+  aspect-ratio: 1.414 / 1; /* Standard A4 Landscape ratio */
+  background: #FFFFFF;
+  border-radius: 4px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  box-sizing: border-box;
+  animation: certFrameReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Certificate reveal: scale up from 96% with a fade — prestigious unveiling feel */
+@keyframes certFrameReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(14px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* Border glow: fires after reveal, cycles twice, then rests — celebrates achievement */
+@keyframes certBorderPulse {
+  0%   { box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12); }
+  40%  { box-shadow: 0 10px 35px rgba(0, 0, 0, 0.10), 0 0 36px rgba(2, 132, 199, 0.42), 0 0 70px rgba(56, 189, 248, 0.16); }
+  100% { box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12); }
+}
+
+#cert-main-container.cert-unlocked .certificate-frame-container {
+  animation: certFrameReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) both,
+             certBorderPulse 1.8s ease-in-out 0.6s 2;
+}
+
+/* AES Việt Nam logo entrance scale-in */
+.cert-aes-logo-img {
+  animation: logoScaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s both;
+}
+
+@keyframes logoScaleIn {
+  from { opacity: 0; transform: scale(0.75); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Corner ornament staggered fade-in */
+.cert-corner {
+  animation: fadeSlideIn 0.4s ease both;
+}
+.cert-corner.top-left     { animation-delay: 0.45s; }
+.cert-corner.top-right    { animation-delay: 0.52s; }
+.cert-corner.bottom-left  { animation-delay: 0.59s; }
+.cert-corner.bottom-right { animation-delay: 0.66s; }
+
+/* Recipient name shimmer-highlight on first render */
+@keyframes nameHighlight {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.cert-recipient-name {
+  transition: color 0.3s ease;
+  animation: nameHighlight 2.2s ease 1s 1;
+}
+
+
+/* Outer Border & Guilloche Frame */
+.cert-outer-border {
+  width: 100%;
+  height: 100%;
+  border: 4px solid #07152B;
+  padding: 8px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.cert-inner-border {
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid #0284C7;
+  padding: 24px 36px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(circle at center, #FFFFFF 0%, #FAFCFF 85%, #F0F4F8 100%);
+}
+
+/* Corner Ornaments */
+.cert-corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: #0284C7;
+  pointer-events: none;
+}
+.cert-corner.top-left { top: 4px; left: 4px; border-top: 3px solid #0284C7; border-left: 3px solid #0284C7; }
+.cert-corner.top-right { top: 4px; right: 4px; border-top: 3px solid #0284C7; border-right: 3px solid #0284C7; }
+.cert-corner.bottom-left { bottom: 4px; left: 4px; border-bottom: 3px solid #0284C7; border-left: 3px solid #0284C7; }
+.cert-corner.bottom-right { bottom: 4px; right: 4px; border-bottom: 3px solid #0284C7; border-right: 3px solid #0284C7; }
+
+/* Certificate Branding Header */
+.cert-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.cert-aes-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #07152B;
+  letter-spacing: -0.5px;
+}
+
+/* Certificate Typography */
+.cert-award-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #0B172B;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 6px;
+  line-height: 1.2;
+}
+
+.cert-subhead-p {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 4px;
+}
+
+.cert-presentation-text {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #475569;
+  margin-top: 14px;
+}
+
+.cert-recipient-name {
+  font-size: 2.3rem;
+  font-weight: 800;
+  color: #0284C7;
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 0.02em;
+  margin: 6px 0 10px;
+  border-bottom: 2px solid #E2E8F0;
+  padding: 0 40px 6px;
+  display: inline-block;
+  min-width: 320px;
+}
+
+.cert-description-statement {
+  font-size: 0.88rem;
+  color: #334155;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Seal & Signatures Row */
+.cert-footer-row {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 16px;
+  margin-top: 10px;
+}
+
+.cert-signature-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+}
+
+.cert-signature-line {
+  width: 100%;
+  border-bottom: 1.5px solid #94A3B8;
+  margin-bottom: 6px;
+  height: 35px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-family: 'Brush Script MT', cursive, Georgia, serif;
+  font-size: 1.4rem;
+  color: #0F213E;
+}
+
+.cert-signer-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #07152B;
+}
+
+.cert-signer-role {
+  font-size: 0.72rem;
+  color: #64748B;
+  text-transform: uppercase;
+}
+
+/* Gold Foil Embossed Seal & AES Việt Nam Logo Wrap */
+.cert-seal-wrap,
+.cert-logo-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  margin-bottom: 4px;
+}
+
+.cert-aes-logo-img {
+  width: auto;
+  max-width: 220px;
+  height: 52px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.06));
+  transition: transform 0.2s ease;
+}
+
+.cert-aes-logo-img:hover {
+  transform: scale(1.03);
+}
+
+.cert-gold-seal {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #FFE082 0%, #FFB300 65%, #C97A00 100%);
+  border: 3px solid #FFF8E1;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #5C3800;
+  position: relative;
+}
+
+.cert-seal-star {
+  font-size: 1.1rem;
+}
+
+.cert-seal-text {
+  font-size: 0.55rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  line-height: 1.1;
+}
+/* --------------------------------------------------------------------------
+   PRINT STYLES FOR HIGH RESOLUTION PDF / PRINTING
+   -------------------------------------------------------------------------- */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+
+  .sidebar,
+  .top-navbar,
+  .certificate-toolbar,
+  .storage-status-banner,
+  .site-footer,
+  #cert-locked-warning {
+    display: none !important;
+  }
+
+  .main-viewport {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .page-content {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .certificate-page-wrap {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .certificate-frame-container {
+    box-shadow: none !important;
+    border: none !important;
+    width: 100vw !important;
+    height: 98vh !important;
+    page-break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    size: A4 landscape;
+    margin: 5mm;
+  }
+}
+
+@media (max-width: 768px) {
+  .certificate-frame-container {
+    aspect-ratio: auto;
+    padding: 12px;
+  }
+  .cert-inner-border {
+    padding: 16px;
+  }
+  .cert-recipient-name {
+    font-size: 1.6rem;
+    min-width: auto;
+    padding: 0 10px 4px;
+  }
+  .cert-award-title {
+    font-size: 1.3rem;
+  }
+  .cert-footer-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+}
