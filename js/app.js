@@ -244,6 +244,37 @@ function saveUserProfile(name) {
   if (nameEl) nameEl.textContent = name;
 }
 
+// Scroll Reveal Animation Engine
+function initScrollAnimations() {
+  // Respect user preference for reduced motion
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('is-revealed'));
+    return;
+  }
+
+  const targets = document.querySelectorAll('.reveal-on-scroll');
+  if (!targets.length) return;
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.1
+    });
+
+    targets.forEach(el => observer.observe(el));
+  } else {
+    // Fallback for older browsers
+    targets.forEach(el => el.classList.add('is-revealed'));
+  }
+}
+
 // Run on page load
 document.addEventListener('DOMContentLoaded', () => {
   const ctx = getCurrentPageContext();
@@ -251,4 +282,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const profile = getUserProfile();
   const nameEl = document.getElementById('header-user-name');
   if (nameEl) nameEl.textContent = profile.name;
+  initScrollAnimations();
 });
+
