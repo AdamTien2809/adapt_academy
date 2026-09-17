@@ -573,11 +573,6 @@ input:checked + .slider:before {
   text-transform: uppercase;
 }
 
-.badge-primary {
-  background: #E0F2FE;
-  color: #0369A1;
-}
-
 .badge-navy {
   background: #0284C7;
   color: #FFFFFF;
@@ -1087,24 +1082,121 @@ input:checked + .slider:before {
   animation: heroAmbientShift 10s ease-in-out infinite alternate;
 }
 
-/* Meta stat item hover lift & micro-interaction */
-.meta-stat-item {
+/* --------------------------------------------------------------------------
+   HOME HERO META STATS — 4 EQUAL PIXEL-SIZED CARDS
+   -------------------------------------------------------------------------- */
+.home-meta-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  padding: 16px 28px 20px 28px;
+  border-top: 1px solid var(--color-border-light);
+  background: #FFFFFF;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .home-meta-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 14px 20px 18px 20px;
+  }
+}
+
+@media (max-width: 580px) {
+  .home-meta-stats {
+    grid-template-columns: 1fr;
+    padding: 12px 16px 16px 16px;
+  }
+}
+
+.home-meta-stats .meta-stat-item {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.home-meta-stats .meta-stat-item:hover {
+  background: #FFFFFF;
+  border-color: #BAE6FD;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.08);
+}
+
+.home-meta-stats .meta-stat-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 8px;
+  background: #F0F9FF;
+  color: #0284C7;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.home-meta-stats .meta-stat-item:hover .meta-stat-icon {
+  animation: statBounce 0.45s ease;
+  background: #E0F2FE;
+  color: #0284C7;
+}
+
+.home-meta-stats .meta-stat-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  flex: 1;
+}
+
+.home-meta-stats .meta-stat-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+.home-meta-stats .meta-stat-value {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #0F172A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.25;
+}
+
+/* Default meta stat item hover for other pages */
+.module-meta-stats:not(.home-meta-stats) .meta-stat-item {
   transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   padding: 6px 10px;
   border-radius: 8px;
 }
 
-.meta-stat-item:hover {
+.module-meta-stats:not(.home-meta-stats) .meta-stat-item:hover {
   background: #F8FAFC;
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
 }
 
-.meta-stat-icon {
-  transition: all 0.2s ease;
-}
-
-.meta-stat-item:hover .meta-stat-icon {
+.module-meta-stats:not(.home-meta-stats) .meta-stat-item:hover .meta-stat-icon {
   animation: statBounce 0.45s ease;
   background: #E0F2FE;
   color: #0284C7;
@@ -1564,26 +1656,6 @@ input:checked + .slider:before {
 .step-p3 .focus-text { color: #D97706; }
 .step-p4 .focus-text { color: #0284C7; }
 .step-p5 .focus-text { color: #1D4ED8; }
-
-/* Pathway Statement Banner */
-.bloom-pathway-banner {
-  background: linear-gradient(135deg, #07152B 0%, #0F284E 100%);
-  color: #FFFFFF;
-  border-radius: 10px;
-  padding: 12px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 0.88rem;
-  text-align: center;
-  border: 1px solid rgba(2, 132, 199, 0.3);
-  box-shadow: 0 4px 12px rgba(7, 21, 43, 0.15);
-}
-
-.bloom-banner-icon {
-  font-size: 1.1rem;
-}
 
 /* 2. Three Cards Grid (Symmetrical Side-by-Side) */
 .bloom-cards-section {
