@@ -412,7 +412,7 @@ class SimulationGameManager {
                 <div class="sim-choice-title">CROSS-CHECK & TRANSFER</div>
                 <div class="sim-choice-desc">Check supporting parameters, log the upward drift rate, and establish an active 15-minute monitoring protocol with the incoming Shift Supervisor.</div>
               </div>
-              <button class="sim-choice-action-btn" style="background:#0284C7;">Choose Option C (Proactive)</button>
+              <button class="sim-choice-action-btn">Choose Option C</button>
             </div>
           </div>
         </div>
@@ -1054,13 +1054,13 @@ class SimulationGameManager {
               <button class="sim-choice-action-btn">Choose Option 3</button>
             </div>
 
-            <div class="sim-choice-card" id="s2-choice-4" style="border-color:#059669;">
+            <div class="sim-choice-card" id="s2-choice-4">
               <div>
-                <div class="sim-choice-letter" style="background:#059669; color:#fff;">4</div>
+                <div class="sim-choice-letter">4</div>
                 <div class="sim-choice-title">RE-SEQUENCE WORKFLOW</div>
                 <div class="sim-choice-desc">Sign cold-side isolation for auxiliary valve overhauls now. Keep 30 technicians 100% productive, while SCM expedites hot-path gaskets for 08:00 AM.</div>
               </div>
-              <button class="sim-choice-action-btn" style="background:#059669;">Choose Option 4 (System Master)</button>
+              <button class="sim-choice-action-btn">Choose Option 4</button>
             </div>
           </div>
         </div>
