@@ -3,22 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Certificate of Completion | From SOP to Smart Decisions</title>
-  <meta name="description" content="Official Certificate of Completion & Operational Excellence - AES Mong Duong.">
-  
+  <title>Simulation Games | From SOP to Smart Decisions</title>
+  <meta name="description" content="Interactive Operational Simulation Games for AES Mong Duong. Play as the engineer in The Thermal Drift Dilemma and The Trade-Off Matrix.">
+
   <!-- Favicon / Website Logo (AES) -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
+  <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/certificate.css">
+  <link rel="stylesheet" href="css/modules.css">
+  <link rel="stylesheet" href="css/simulation.css">
 </head>
 <body>
 
   <div class="app-container">
 
-    <!-- SIDEBAR -->
+    <!-- ====================================================================
+         LEFT SIDEBAR NAVIGATION
+         ==================================================================== -->
     <aside class="sidebar" id="main-sidebar">
       <div class="sidebar-header">
         <a href="index.html" class="brand-logo-wrap">
@@ -105,7 +109,7 @@
         </a>
 
         <!-- Nested Simulation Games under Module 3 -->
-        <a href="simulation-games.html" class="nav-item" id="nav-simulations" style="margin-left: 12px; border-left: 2px solid #0284C7;">
+        <a href="simulation-games.html" class="nav-item active" id="nav-simulations" style="margin-left: 12px; border-left: 2px solid #0284C7;">
           <div class="nav-item-left">
             <span class="nav-icon" style="color: #38BDF8;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -155,7 +159,7 @@
           <span class="nav-status-icon"></span>
         </a>
 
-        <a href="certificate.html" class="nav-item active" id="nav-certificate">
+        <a href="certificate.html" class="nav-item" id="nav-certificate">
           <div class="nav-item-left">
             <span class="nav-icon">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -165,7 +169,7 @@
             </span>
             <div class="nav-item-text">
               <span>Certificate</span>
-              <span class="nav-item-sub">Save & Download</span>
+              <span class="nav-item-sub">Official Credential</span>
             </div>
           </div>
           <span class="nav-status-icon"></span>
@@ -173,20 +177,22 @@
       </nav>
 
       <div class="sidebar-footer">
-        <div class="sidebar-engineer-visual">
-          <img src="assets/sidebar_engineer.jpg" alt="AES Mong Duong O&M Engineer">
-          <div class="sidebar-engineer-overlay">
-            <div class="sidebar-motto-aes">aes</div>
-            <div class="sidebar-motto-text">Better Decisions.<br>Plant Stronger. Tomorrow.</div>
+        <div class="plant-status-card">
+          <div class="plant-status-dot"></div>
+          <div class="plant-status-info">
+            <span class="plant-status-title">Mong Duong 2 Plant</span>
+            <span class="plant-status-sub">2 x 620 MW • Online</span>
           </div>
         </div>
       </div>
     </aside>
 
-    <!-- MAIN VIEWPORT -->
+    <!-- ====================================================================
+         MAIN VIEWPORT
+         ==================================================================== -->
     <main class="main-viewport">
-
-      <!-- Header -->
+      
+      <!-- Top Navbar -->
       <header class="top-navbar">
         <div class="nav-left-meta">
           <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation">
@@ -199,7 +205,9 @@
           <div class="breadcrumbs">
             <a href="index.html">Home</a>
             <span class="separator">/</span>
-            <span class="current">Official Certificate</span>
+            <a href="module3.html">Module 3</a>
+            <span class="separator">/</span>
+            <span class="current">Simulation Games</span>
           </div>
         </div>
 
@@ -207,7 +215,7 @@
           <div class="progress-track">
             <div class="progress-fill" id="global-progress-fill"></div>
           </div>
-          <div class="progress-label-text" id="global-progress-label">100% – Course Completed</div>
+          <div class="progress-label-text" id="global-progress-label">Simulation Room • Active</div>
         </div>
 
         <div class="header-user-pill">
@@ -219,145 +227,92 @@
         </div>
       </header>
 
-      <!-- Page Content -->
+      <!-- Page Content: Simulation Viewport Shell -->
       <div class="page-content">
+        <div class="sim-page-wrapper">
 
-        <!-- Locked Warning (Shown when user hasn't passed assessment with >= 80%) -->
-        <div id="cert-locked-warning" class="card" style="display: none; text-align: center; padding: 48px 24px; max-width: 640px; margin: 40px auto; border-top: 4px solid var(--primary-color);">
-          <div style="font-size: 3.5rem; margin-bottom: 16px;">🔒</div>
-          <h2 style="font-size: 1.6rem; font-weight: 800; color: #07152B; margin-bottom: 10px;">Certificate Locked</h2>
-          <p style="font-size: 0.95rem; color: #475569; margin-bottom: 16px; line-height: 1.6;">
-            To earn and unlock your official AES Mong Duong <strong>Certificate of Operational Excellence</strong>, you must complete the <strong>Final Assessment</strong> and achieve a passing score of at least <strong>80%</strong>.
-          </p>
-          <div style="background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px; padding: 14px; margin-bottom: 24px; font-size: 0.85rem; color: #64748B;">
-            ⚠️ Certificate downloading (PDF / Print), saving recipient names, and high-resolution PNG image generation are locked until the final exam is successfully completed.
-          </div>
-          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-            <a href="assessment.html" class="btn btn-primary btn-lg">
-              Take Final Assessment Now &rarr;
-            </a>
-            <button type="button" class="btn btn-outline" id="btn-preview-cert" style="font-size: 0.85rem;">
-              👁 Instructor Preview Mode
-            </button>
-          </div>
-        </div>
-
-        <!-- Main Certificate Container -->
-        <div id="cert-main-container" class="certificate-page-wrap">
-
-          <!-- Action Toolbar -->
-          <div class="certificate-toolbar">
-            <div class="recipient-input-group">
-              <label for="input-recipient-name">Recipient Name:</label>
-              <input type="text" id="input-recipient-name" class="recipient-input-field" placeholder="Enter Teacher or Learner Name" value="Teacher Reviewer">
-              <button type="button" class="btn btn-primary" id="btn-save-recipient">
-                Save Name
+          <!-- Top Navigation & Stage HUD Bar -->
+          <div class="sim-top-nav-bar">
+            <div class="sim-stage-pills">
+              <button class="sim-stage-tab-btn active" id="tab-stage-1">
+                <span>🔥 Game 1: Thermal Drift</span>
+              </button>
+              <button class="sim-stage-tab-btn" id="tab-stage-2">
+                <span>⚖️ Game 2: Trade-Off Matrix</span>
               </button>
             </div>
 
-            <div class="cert-btn-group">
-              <button type="button" class="btn" id="btn-print-cert">
-                🖨 Download PDF / Print
-              </button>
-              <button type="button" class="btn btn-success" id="btn-download-img">
-                📥 Download Image (PNG)
-              </button>
-              <button type="button" class="btn" id="btn-copy-cert-id" title="Copy Verification ID">
-                📋 Copy ID
-              </button>
-            </div>
-          </div>
-
-          <!-- Persistence Info Toast (hidden by default, shown on save) -->
-          <div id="cert-toast-msg" class="storage-status-banner" style="display: none;">
-            ✓ Saved! Your certificate is permanently preserved in web storage.
-          </div>
-
-          <!-- The Certificate Frame -->
-          <div class="certificate-frame-container" id="certificate-printable-area">
-            <div class="cert-outer-border">
-              <div class="cert-inner-border">
-
-                <!-- Corner Flourishes -->
-                <div class="cert-corner top-left"></div>
-                <div class="cert-corner top-right"></div>
-                <div class="cert-corner bottom-left"></div>
-                <div class="cert-corner bottom-right"></div>
-                
-                <!-- Award Title -->
-                <div>
-                  <h1 class="cert-award-title">Certificate of Operational Excellence</h1>
-                  <p class="cert-subhead-p">From SOP to Smart Decisions</p>
-                </div>
-
-                <!-- Presentation Line -->
-                <div class="cert-presentation-text">This official credential is proudly awarded to:</div>
-
-                <!-- Dynamic Recipient Name -->
-                <div class="cert-recipient-name" id="cert-display-name">
-                  Teacher Reviewer
-                </div>
-
-                <!-- Statement Text -->
-                <p class="cert-description-statement">
-                  For demonstrating exceptional operational proficiency across dynamic crisis management, boiler outage coordination, cross-functional supply chain alignment, and digital shift handover protocols within high-reliability power generation systems.
-                </p>
-
-                <!-- Footer: Signatures & AES Việt Nam Logo -->
-                <div class="cert-footer-row">
-
-                  <!-- Operations Director Signature -->
-                  <div class="cert-signature-block">
-                    <div class="cert-signature-line">Joseph Uddo</div>
-                    <span class="cert-signer-name">Joseph Uddo</span>
-                    <span class="cert-signer-role">General Director</span>
-                  </div>
-
-                  <!-- AES Việt Nam Official Logo -->
-                  <div class="cert-logo-wrap">
-                    <img src="assets/aes_vietnam_logo.png" alt="AES Việt Nam" id="cert-aes-logo" class="cert-aes-logo-img">
-                  </div>
-
-                  <!-- Training Superintendent Signature -->
-                  <div class="cert-signature-block">
-                    <div class="cert-signature-line">Huyen Bui</div>
-                    <span class="cert-signer-name">Huyen Bui</span>
-                    <span class="cert-signer-role">Human Resources Supervisor</span>
-                  </div>
-                </div>
+            <div class="sim-hud-meta-group">
+              <div class="sim-xp-pill">
+                <span>⭐</span>
+                <span id="sim-global-xp">450 XP</span>
               </div>
+              <button class="sim-audio-btn" id="sim-audio-toggle">
+                🔊 Audio: ON
+              </button>
+              <button class="sim-btn sim-btn-reset" id="sim-btn-reset-stage" title="Restart current scenario">
+                ↺ Replay
+              </button>
+            </div>
+          </div>
+
+          <!-- Main Interactive Simulation Viewport -->
+          <div class="sim-viewport" id="sim-main-viewport">
+            <div class="sim-env-grid-overlay"></div>
+            
+            <!-- Dynamic Stage Container (Rendered by simulation.js) -->
+            <div id="sim-dynamic-stage-content">
+              <!-- Content loaded dynamically -->
+            </div>
+          </div>
+
+          <!-- Bottom Controller Bar -->
+          <div class="sim-bottom-bar">
+            <div class="sim-mission-status-box">
+              <span>🎯 <strong>Player Role:</strong> O&M Shift Engineer & Operations Lead</span>
+              <span style="color:#64748B;">•</span>
+              <span>The learner is the <strong>player</strong>, not the viewer.</span>
+            </div>
+
+            <div class="sim-btn-group">
+              <a href="module3.html" class="sim-btn sim-btn-reset">
+                &larr; Back to Module 3
+              </a>
+              <a href="assessment.html" class="sim-btn sim-btn-primary">
+                Final Assessment &rarr;
+              </a>
             </div>
           </div>
 
         </div>
-
-        <!-- Web Storage Active Banner — full-width below the certificate wrap -->
-        <div class="storage-status-banner" style="margin-top: 4px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-          </svg>
-          <span>
-            <strong>Web Storage Active:</strong> Your certificate data is automatically saved. You can return to this web page at any time to review, update, or re-download your certificate!
-          </span>
-        </div>
-
-        <!-- (Footer removed as requested) -->
       </div>
     </main>
 
   </div>
 
+  <!-- Global Inspection Modal / Detail Overlay -->
+  <div class="sim-inspect-overlay" id="sim-inspect-overlay">
+    <div class="sim-inspect-card">
+      <button class="sim-inspect-close-btn" id="sim-inspect-close">&times;</button>
+      <span class="sim-inspect-badge" id="sim-modal-badge">DIAGNOSTIC INSPECTION</span>
+      <h3 class="sim-inspect-heading" id="sim-modal-heading">Parameter Details</h3>
+      <div class="sim-inspect-data-box" id="sim-modal-data">
+        <!-- Telemetry Data -->
+      </div>
+      <div class="sim-inspect-insight" id="sim-modal-insight">
+        <!-- Operational Insight -->
+      </div>
+      <div style="text-align: right;">
+        <button class="sim-btn sim-btn-primary" onclick="document.getElementById('sim-inspect-overlay').classList.remove('open')">
+          Acknowledge & Continue
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
-  <script src="js/certificate.js"></script>
-  <script>
-    let certificateController;
-    document.addEventListener('DOMContentLoaded', () => {
-      certificateController = new CertificateController();
-      certificateController.init();
-    });
-  </script>
+  <script src="js/simulation.js"></script>
 </body>
 </html>
